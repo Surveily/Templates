@@ -1,8 +1,8 @@
 // See https://aka.ms/vscode-remote/containers for the
 // documentation about the devcontainer.json format
 {
-    "name": "dotnet-3.1-sdk",
-    "image": "ubuntu:latest",
+    "name": "templates",
+    "image": "alpine/git",
     "runArgs": [
         "-v",
         "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro"
