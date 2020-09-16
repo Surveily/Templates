@@ -1,0 +1,46 @@
+// See https://aka.ms/vscode-remote/containers for the
+// documentation about the devcontainer.json format
+{
+    "name": "dotnet-3.1-sdk",
+    "image": "ubuntu:latest",
+    "runArgs": [
+        "-v",
+        "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro"
+    ],
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
+    "appPort": [
+        "5000:5000"
+    ],
+    "extensions": [
+        "kosunix.guid",
+        "k--kato.docomment",
+        "redhat.vscode-yaml",
+        "zxh404.vscode-proto3",
+        "ms-vscode.powershell",
+        "mikeburgh.xml-format",
+        "ms-dotnettools.csharp",
+        "donjayamanne.githistory",
+        "jchannon.csharpextensions",
+        "wayou.vscode-todo-highlight",
+        "ms-azuretools.vscode-docker",
+        "tintoy.msbuild-project-tools",
+    ],
+    "settings": {
+        "csharp.referencesCodeLens.enabled": false,
+        "extensions.autoUpdate": false,
+        "omnisharp.useGlobalMono": "never",
+        "csharpextensions.privateMemberPrefix": "_",
+        "csharpextensions.useThisForCtorAssignments": false,
+        "files.exclude": {
+            "**/CVS": true,
+            "**/bin": true,
+            "**/obj": true,
+            "**/.hg": true,
+            "**/.svn": true,
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/BenchmarkDotNet.Artifacts": true
+        }
+    },
+    "shutdownAction": "stopContainer"
+}
