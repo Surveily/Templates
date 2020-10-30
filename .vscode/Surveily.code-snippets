@@ -1,0 +1,60 @@
+{
+	"AssertThrows": {
+		"scope": "csharp",
+		"prefix": "assertThrows",
+		"body": [
+			"[Test]",
+			"public void Should_Throw_Exception()",
+			"{",
+			"\tActualException.ShouldNotBeNull();",
+			"}",
+			"",
+			"[Test]",
+			"public void Should_Throw_Exception_WithValidType()",
+			"{",
+			"\tActualExceptionType.ShouldBeSameAs(ExpectedExceptionType);",
+			"}",
+			"",
+			"[Test]",
+			"public void Should_Throw_Exception_WithValidMessage()",
+			"{",
+			"\tActualExceptionMessage.ShouldEqual(ExpectedExceptionMessage);",
+			"}",
+		],
+		"description": "Surveily's throws test assertion"
+	},
+	"benchSetup": {
+		"scope": "csharp",
+		"prefix": "benchSetup",
+		"body": [
+			"public override async Task GlobalSetupAsync()",
+			"{",
+			"\tawait base.GlobalSetupAsync();",
+			"}",
+			"",
+			"public override async Task GlobalCleanupAsync()",
+			"{",
+			"\tawait base.GlobalCleanupAsync();",
+			"}"
+		],
+		"description": "Override benchmark setup"
+	},
+	"initClass": {
+		"scope": "csharp",
+		"prefix": "initClass",
+		"body": [
+			"$LINE_COMMENT <copyright file=\"${TM_FILENAME}\" company=\"VAR Unit\">",
+			"$LINE_COMMENT Copyright (c) VAR Unit. All rights reserved.",
+			"$LINE_COMMENT </copyright>",
+			"",
+			"namespace ${TM_DIRECTORY/.*src\\/(([^\\/]*)(\\/)?)|(\\/)([^\\/]*)/$2${3:+.}${5:+.}$5/g}",
+			"{",
+			"\tpublic class ${TM_FILENAME_BASE}${1}",
+			"\t{",
+			"\t\t${0}",
+			"\t}",
+			"}"
+		],
+		"description": "Initialize new class"
+	}
+}
