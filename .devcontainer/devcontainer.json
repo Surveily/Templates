@@ -5,12 +5,12 @@
     "image": "surveily/developer.dotnet:3.1-sdk",
     "runArgs": [
         "-v",
-        "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro"
+        "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-localhost:ro",
+        "--network",
+        "host"
     ],
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/*",
-    "appPort": [
-        "5000:5000"
-    ],
+    "appPort": [],
     "extensions": [
         "kosunix.guid",
         "k--kato.docomment",

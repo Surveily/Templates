@@ -177,3 +177,6 @@ interval.json
 # Test coverage
 coverage.json
 coverage.cobertura.xml
+
+# Migrations
+**/Migrations
